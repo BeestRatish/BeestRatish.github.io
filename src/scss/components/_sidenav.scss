@@ -130,3 +130,34 @@
         }
     }
 }
+
+// Theme Toggle Button
+.theme-toggle-btn {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    color: $white;
+    cursor: pointer;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(15deg) scale(1.1);
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .theme-toggle-btn {
+        margin: 1rem auto;
+    }
+}
