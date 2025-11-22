@@ -5,16 +5,49 @@
 #sideNav {
     padding-left: 1rem;
     padding-right: 1rem;
+    background: linear-gradient(180deg, $primary-blue 0%, $primary-purple 100%);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
 
     .navbar-nav .nav-item .nav-link {
         font-weight: 800;
         letter-spacing: 0.05rem;
         text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        position: relative;
+        
+        &:hover {
+            color: $white;
+            transform: translateX(5px);
+        }
+        
+        &.active {
+            color: $white;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                left: -1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 100%;
+                background: $white;
+                border-radius: 0 2px 2px 0;
+            }
+        }
     }
 
     .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.3);
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
         &:focus {
-            outline-color: lighten($primary, 15%);
+            outline-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
         }
     }
 }
@@ -33,6 +66,8 @@
 
         width: $sidebar-base-width;
         height: 100vh;
+        background: linear-gradient(180deg, $primary-blue 0%, $primary-purple 100%);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
 
         .navbar-brand {
             display: flex;
@@ -43,7 +78,15 @@
             .img-profile {
                 max-width: 10rem;
                 max-height: 10rem;
-                border: 0.5rem solid fade-out($white, 0.8);
+                border: 0.5rem solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    transform: scale(1.05);
+                    border-color: rgba(255, 255, 255, 0.5);
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+                }
             }
         }
 
@@ -65,6 +108,22 @@
 
                     .nav-link {
                         display: block;
+                        padding: 0.75rem 1rem;
+                        margin: 0.25rem 0;
+                        border-radius: 8px;
+                        
+                        &:hover {
+                            background: rgba(255, 255, 255, 0.1);
+                            transform: translateX(0);
+                        }
+                        
+                        &.active {
+                            background: rgba(255, 255, 255, 0.15);
+                            
+                            &::before {
+                                display: none;
+                            }
+                        }
                     }
                 }
             }

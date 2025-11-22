@@ -10,9 +10,31 @@ section.resume-section {
     padding-top: 5rem;
     padding-bottom: 5rem;
     max-width: 75rem;
+    transition: all 0.3s ease;
 
     .resume-section-content {
         width: 100%;
+    }
+    
+    ul {
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 0.5rem;
+            
+            &::marker {
+                color: $primary-blue;
+            }
+        }
+    }
+    
+    .d-flex {
+        transition: all 0.3s ease;
+        
+        &:hover {
+            transform: translateX(5px);
+        }
     }
 }
 

@@ -4,12 +4,16 @@
 
 // Pre-state grayscale colors used in other variables
 
-$gray-800: #343a40;
+$gray-800: #2c3e50;
 
 // Override Bootstrap color system
 
-$orange: #bd5d38;
+// Modern tech-inspired color scheme
+$primary-blue: #2563eb;
+$primary-purple: #7c3aed;
+$accent-cyan: #06b6d4;
+$orange: #f97316;
 
 // Override Bootstrap default state colors
 
-$primary: $orange;
+$primary: $primary-blue;
