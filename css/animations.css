@@ -1,0 +1,160 @@
+/* Animated Background */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Glow effect */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6; }
+}
+
+/* Apply animations */
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Animated profile image */
+.img-profile {
+    animation: float 6s ease-in-out infinite;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.img-profile:hover {
+    transform: scale(1.05);
+    border-color: #fff;
+}
+
+/* Animated headings */
+h1, h2, h3, .subheading {
+    position: relative;
+    display: inline-block;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Card hover effects */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated buttons */
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #00bcd4);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn-primary:hover:before {
+    left: 100%;
+}
+
+/* Particle.js container */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Navigation hover effect */
+.nav-link {
+    position: relative;
+    transition: all 0.3s;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+/* Section entrance animations */
+.resume-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.resume-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Skill bar animations */
+.skill-bar {
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #00bcd4);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Animation for skill bars */
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: var(--target-width); }
+}
+
+.skill-level.animate {
+    animation: fillBar 1.5s ease-out forwards;
+}
